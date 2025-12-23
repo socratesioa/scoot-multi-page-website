@@ -11,9 +11,15 @@ function Footer() {
                     </a>
                     <nav className='footer__nav' aria-label='Footer Navigation'>
                         <ul>
-                            <li><Link to='/about' className='footer__link' onClick={() => setMenuOpen(false)}>About</Link></li>
-            <li><Link to='/locations' className='footer__link' onClick={() => setMenuOpen(false)}>Location</Link></li>
-            <li><Link to='/careers' className='footer__link' onClick={() => setMenuOpen(false)}>Careers</Link></li>
+                            <li>
+  <Link to='/about' className='footer__link'>About</Link>
+</li>
+<li>
+  <Link to='/locations' className='footer__link'>Location</Link>
+</li>
+<li>
+  <Link to='/careers' className='footer__link'>Careers</Link>
+</li>
                         </ul>
                     </nav>
                     <nav aria-label='Social media links'>
