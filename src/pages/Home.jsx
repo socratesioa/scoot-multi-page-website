@@ -17,8 +17,17 @@ function Home() {
       <p>Scoot takes the hassle out of urban mobility.
     Our bikes are placed in convenient locations in each of our cities. Use our
     app to locate the nearest bike, unlock it with a tap, and you’re away!</p>
-    <a href='#hero' className='primary__btn'>Get
-    Scootin</a>
+    <Link
+  to="#cta"
+  className="primary__btn"
+  onClick={(e) => {
+    e.preventDefault();
+    document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
+  }}
+>
+  Get Scootin
+</Link>
       </div>
     </section>
     <section id='how-it-works' className='how__it__works' aria-labelledby='how-it-works-heading'>

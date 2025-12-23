@@ -101,7 +101,7 @@ function Header() {
   to="#cta"
   className="cta__btn"
   onClick={(e) => {
-    e.preventDefault(); // prevent default jump
+    e.preventDefault();
     document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
   }}
