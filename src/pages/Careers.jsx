@@ -20,7 +20,7 @@ function Careers() {
   passionate about our mission to provide clean, accessible transport to improve urban 
   living we want to hear from you!</p>
           </div>
-          <a href='#' className='primary__btn'>Say Hello</a>
+          <a href="#" onClick={(e) => e.preventDefault()} className="primary__btn">Say Hello</a>
         </div>
       </div>
     </section>
