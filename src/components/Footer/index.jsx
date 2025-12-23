@@ -1,5 +1,6 @@
 import './Footer.scss';
 import footerLogo from '../../assets/images/logo-footer.svg';
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -10,9 +11,9 @@ function Footer() {
                     </a>
                     <nav className='footer__nav' aria-label='Footer Navigation'>
                         <ul>
-                            <li><a href="/about" className='footer__link'>About</a></li>
-                            <li><a href="/locations" className='footer__link'>Location</a></li>
-                            <li><a href="/careers" className='footer__link'>Careers</a></li>
+                            <li><Link to='/about' className='footer__link' onClick={() => setMenuOpen(false)}>About</Link></li>
+            <li><Link to='/locations' className='footer__link' onClick={() => setMenuOpen(false)}>Location</Link></li>
+            <li><Link to='/careers' className='footer__link' onClick={() => setMenuOpen(false)}>Careers</Link></li>
                         </ul>
                     </nav>
                     <nav aria-label='Social media links'>
