@@ -1,0 +1,82 @@
+@use "../../styles/abstracts" as *;
+@use "../../styles/base/typography" as typo;
+
+.faq__group {
+  display: grid;
+  gap: 32px;
+  @include respond(large, min) {
+    grid-template-columns: 1fr 730px;
+    gap: 30px;
+  }
+}
+
+.faq__list {
+  display: grid;
+  gap: 16px;
+  @include respond(small, min) {
+    gap: 24px;
+  }
+}
+
+.faq__item {
+  background-color: $clr-faq-item-bg;
+  padding: 32px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  @include respond(small, min) {
+    padding: 32px 32px 32px 40px;
+  }
+}
+
+.faq__question {
+  @include text-preset(typo.$question-mobile);
+  color: $clr-body-dark;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  @include respond(small, min) {
+    @include text-preset(typo.$question-tablet);
+    gap: unset;
+  }
+}
+
+.faq__item:hover {
+  background-color: $clr-question-hover;
+}
+
+.faq__question:focus-visible {
+  outline-offset: 4px;
+  outline: 2px solid $clr-accent;
+  border-radius: 2px;
+}
+
+.faq__arrow {
+  transition: transform 0.3s ease;
+}
+
+.faq__question[aria-expanded="true"] .faq__arrow {
+  transform: rotate(180deg);
+}
+
+.faq__answer {
+  color: $clr-body-dark;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding-top: 0;
+}
+
+.faq__answer.open {
+  max-height: 500px;
+  padding-top: 16px;
+  @include respond(small, min) {
+    padding-top: 24px;
+  }
+}

@@ -1,0 +1,173 @@
+@use "../abstracts" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+$font-body: "Lexend Deca", sans-serif;
+$font-heading: "Space Mono", monospace;
+
+$heading-1: (
+  family: $font-heading,
+  size: 56px,
+  lineHeight: 56px,
+  letterSpacing: -2.5px,
+  weight: 700,
+);
+
+$heading-1-mobile: (
+  family: $font-heading,
+  size: 40px,
+  lineHeight: 40px,
+  letterSpacing: -1.79px,
+  weight: 700,
+);
+
+$heading-2: (
+  family: $font-heading,
+  size: 48px,
+  lineHeight: 48px,
+  letterSpacing: -2.14px,
+  weight: 700,
+);
+
+$heading-2-mobile: (
+  family: $font-heading,
+  size: 32px,
+  lineHeight: 32px,
+  letterSpacing: -1.43px,
+  weight: 700,
+);
+
+$heading-3: (
+  family: $font-heading,
+  size: 40px,
+  lineHeight: 48px,
+  letterSpacing: -1.79px,
+  weight: 700,
+);
+
+$heading-4: (
+  family: $font-heading,
+  size: 24px,
+  lineHeight: 28px,
+  letterSpacing: -1.07px,
+  weight: 700,
+);
+
+$heading-4-mobile: (
+  family: $font-heading,
+  size: 20px,
+  lineHeight: 28px,
+  letterSpacing: -0.89px,
+  weight: 700,
+);
+
+$footer-text: (
+  family: $font-heading,
+  size: 15px,
+  lineHeight: 25px,
+  letterSpacing: 0,
+  weight: 700,
+);
+
+$body-1: (
+  family: $font-body,
+  size: 15px,
+  lineHeight: 25px,
+  letterSpacing: 0,
+  weight: 400,
+);
+
+$links: (
+  family: $font-heading,
+  size: 15px,
+  lineHeight: 25px,
+  letterSpacing: 0,
+  weight: 700,
+);
+
+$country-label-mobile: (
+  family: $font-heading,
+  size: 24px,
+  lineHeight: 28px,
+  letterSpacing: -1.07px,
+  weight: 700,
+);
+
+$country-label-tablet: (
+  family: $font-heading,
+  size: 13px,
+  lineHeight: 28px,
+  letterSpacing: -0.58px,
+  weight: 700,
+);
+
+$job-heading-mobile: (
+  family: $font-heading,
+  size: 18px,
+  lineHeight: 24px,
+  letterSpacing: -0.8px,
+  weight: 700,
+);
+
+$job-heading-tablet: (
+  family: $font-heading,
+  size: 24px,
+  lineHeight: 28px,
+  letterSpacing: -1.07px,
+  weight: 700,
+);
+
+$question-mobile: (
+  family: $font-heading,
+  size: 18px,
+  lineHeight: 24px,
+  letterSpacing: -0.8px,
+  weight: 700,
+);
+
+$question-tablet: (
+  family: $font-heading,
+  size: 24px,
+  lineHeight: 28px,
+  letterSpacing: -1.07px,
+  weight: 700,
+);
+
+$mobile-menu-links: (
+  family: $font-heading,
+  size: 18px,
+  lineHeight: 25px,
+  letterSpacing: 0,
+  weight: 700,
+);
+
+body {
+  @include text-preset($body-1);
+  color: $clr-body-light;
+}
+
+h1 {
+  @include text-preset($heading-1-mobile);
+  color: $clr-white;
+  text-align: center;
+  @include respond(small, min) {
+    @include text-preset($heading-1);
+    text-align: left;
+  }
+}
+
+h2 {
+  @include text-preset($heading-2-mobile);
+  color: $clr-body-dark;
+  @include respond(small, min) {
+    @include text-preset($heading-2);
+  }
+}
+
+h3 {
+  @include text-preset($heading-4-mobile);
+  color: $clr-body-dark;
+  @include respond(small, min) {
+    @include text-preset($heading-4);
+  }
+}

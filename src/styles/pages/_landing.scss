@@ -1,0 +1,303 @@
+@use "../abstracts" as *;
+@use "../base/typography" as typo;
+
+.hero {
+  height: 650px;
+  place-content: center;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  background-image: url("../../assets/images/img/home-hero-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  @include respond(small, min) {
+    background-image: url("../../assets/images/img/home-hero-tablet.jpg");
+  }
+  @include respond(large, min) {
+    background-image: url("../../assets/images/img/home-hero-desktop.jpg");
+    text-align: left;
+    justify-items: start;
+    place-content: unset;
+    align-items: center;
+    margin-bottom: 160px;
+  }
+}
+
+.hero::before {
+  @include respond(small, min) {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    width: 234px;
+    height: 63px;
+    background-image: url("../../assets/images/patterns/white-circles.svg");
+    right: -31px;
+    bottom: 45px;
+    @include respond(large, min) {
+      bottom: 164.5px;
+      right: -48px;
+    }
+  }
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 447px;
+  height: 138px;
+  background-image: url("../../assets/images/patterns/right-arrow.svg");
+  background-repeat: no-repeat;
+  top: 478px;
+  left: -312px;
+  pointer-events: none;
+  @include respond(small, min) {
+    left: -137px;
+    top: 473px;
+  }
+  @include respond(large, min) {
+    left: unset;
+    right: 288px;
+    top: 355px;
+  }
+}
+
+.hero__content {
+  padding: 0 32px;
+  @include respond(small, min) {
+    padding: 0;
+    max-width: 573px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  @include respond(large, min) {
+    max-width: 1110px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+}
+
+.hero__content::after {
+  @include respond(large, min) {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    width: 203px;
+    height: 15px;
+    background-image: url("../../assets/images/patterns/line.svg");
+    top: 202.5px;
+    left: -165px;
+  }
+}
+
+.hero__content h1 {
+  text-align: center;
+  @include respond(large, min) {
+    text-align: left;
+    width: 500px;
+  }
+}
+
+.hero__content p {
+  margin-top: 24px;
+  margin-bottom: 32px;
+  color: $clr-white;
+  @include respond(large, min) {
+    width: 405px;
+    margin-left: 95px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+.hero__content .primary__btn {
+  @include respond(large, min) {
+    margin-left: 95px;
+  }
+}
+
+.features {
+  display: grid;
+  gap: 120px;
+  padding: 0 32px;
+  margin-bottom: 120px;
+  @include respond(small, min) {
+    margin-bottom: 104px;
+    padding: 0;
+  }
+  @include respond(large, min) {
+    max-width: 1110px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 200px;
+  }
+}
+
+.feature {
+  display: grid;
+  gap: 56px;
+  justify-items: center;
+  @include respond(large, min) {
+    display: flex;
+    gap: 220px;
+    justify-items: unset;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.feature__content {
+  display: grid;
+  text-align: center;
+  gap: 32px;
+  justify-items: center;
+  max-width: 573px;
+  width: 100%;
+  margin: 0 auto;
+  @include respond(small, min) {
+    gap: 40px;
+  }
+  @include respond(large, min) {
+    max-width: 445px;
+    text-align: unset;
+    justify-items: start;
+  }
+}
+
+.feature__content h3 {
+  @include text-preset(typo.$heading-2-mobile);
+  max-width: 457px;
+  margin: 0 auto;
+  @include respond(small, min) {
+    @include text-preset(typo.$heading-2);
+  }
+}
+
+.feature__text {
+  display: grid;
+  gap: 32px;
+  @include respond(small, min) {
+    gap: 40px;
+  }
+}
+
+.feature__img {
+  aspect-ratio: 311 / 311;
+  border-radius: 50%;
+  max-width: 445px;
+  width: 100%;
+  height: auto;
+}
+
+.main__feature--left,
+.feature--left,
+.feature--right {
+  position: relative;
+}
+
+.main__feature--left,
+.feature--right {
+  @include respond(large, min) {
+    flex-direction: row-reverse;
+  }
+}
+
+.main__feature--left::after {
+  content: "";
+  position: absolute;
+  width: 741px;
+  height: 151px;
+  background-image: url("../../assets/images/patterns/left-downward-arrow.svg");
+  top: 173px;
+  left: 0;
+  pointer-events: none;
+  @include respond(small, min) {
+    top: 307px;
+  }
+  @include respond(large, min) {
+    left: unset;
+    right: -165px;
+  }
+}
+
+.main__feature--left::before {
+  @include respond(small, min) {
+    content: "";
+    position: absolute;
+    width: 445px;
+    height: 445px;
+    background-image: url("../../assets/images/patterns/circle.svg");
+    right: -350px;
+    top: 0;
+    pointer-events: none;
+  }
+  @include respond(large, min) {
+    right: -510px;
+  }
+}
+
+.feature--left::after {
+  content: "";
+  position: absolute;
+  width: 741px;
+  height: 151px;
+  background-image: url("../../assets/images/patterns/left-downward-arrow.svg");
+  top: 0;
+  left: -473px;
+  transform: scaleX(-1);
+  transform-origin: center;
+  pointer-events: none;
+  @include respond(small, min) {
+    left: -386px;
+  }
+}
+
+.feature--left::before {
+  @include respond(small, min) {
+    content: "";
+    position: absolute;
+    width: 445px;
+    height: 445px;
+    background-image: url("../../assets/images/patterns/circle.svg");
+    left: -345px;
+    top: 0;
+    pointer-events: none;
+  }
+  @include respond(large, min) {
+    left: -510px;
+  }
+}
+
+.feature--right::after {
+  content: "";
+  position: absolute;
+  width: 741px;
+  height: 151px;
+  background-image: url("../../assets/images/patterns/left-downward-arrow.svg");
+  top: 0;
+  left: 130px;
+  pointer-events: none;
+  @include respond(small, min) {
+    top: 85px;
+    left: unset;
+    right: -386px;
+  }
+}
+
+.feature--right::before {
+  @include respond(small, min) {
+    content: "";
+    position: absolute;
+    width: 445px;
+    height: 445px;
+    background-image: url("../../assets/images/patterns/circle.svg");
+    right: -350px;
+    top: 0;
+    pointer-events: none;
+  }
+  @include respond(large, min) {
+    right: -510px;
+  }
+}

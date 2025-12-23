@@ -1,0 +1,101 @@
+@use "../../styles/abstracts" as *;
+@use "../../styles/base/typography" as typo;
+
+footer {
+  background-color: $clr-footer-bg;
+  padding: 64px 0 88px 0;
+  @include respond(small, min) {
+    padding: 35px 40px 32px 40px;
+  }
+  @include respond(large, min) {
+    padding: 35px 0 32px 0;
+  }
+}
+
+.footer__container {
+  display: grid;
+  justify-content: center;
+  @include respond(small, min) {
+    grid-template-columns: auto 1fr auto;
+    gap: 60px;
+    justify-content: start;
+    align-items: center;
+  }
+  @include respond(large, min) {
+    max-width: 1110px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.footer__nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 42px;
+  margin-bottom: 85px;
+  @include respond(small, min) {
+    margin: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 32px;
+  }
+}
+
+.footer__link {
+  text-decoration: none;
+  color: $clr-body-light;
+  @include text-preset(typo.$footer-text);
+  outline: none;
+  transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+  color: $clr-accent;
+}
+
+.footer__link:focus-visible {
+  outline-offset: 4px;
+  outline: 2px solid $clr-accent;
+  border-radius: 2px;
+}
+
+.social {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social__link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: $clr-accent;
+  outline: none;
+  transition: color 0.3s ease;
+}
+
+.social__link:hover {
+  color: $clr-light-hover;
+}
+
+.social__link:focus-visible {
+  outline-offset: 4px;
+  outline: 2px solid $clr-accent;
+  border-radius: 2px;
+}
+
+.logo__link {
+  outline: none;
+}
+
+.logo__link:focus-visible {
+  outline-offset: 4px;
+  outline: 2px solid $clr-accent;
+  border-radius: 2px;
+}

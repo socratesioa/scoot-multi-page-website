@@ -1,0 +1,57 @@
+@use "../../styles/abstracts" as *;
+@use "../../styles/base/typography" as typo;
+
+.cta {
+  background-image: url("../../assets/images/patterns/semi-circles.svg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: -607px bottom;
+  background-color: $clr-cta-bg;
+  @include respond(small, min) {
+    background-position: center bottom;
+  }
+}
+
+.cta__container {
+  padding: 88px 32px;
+  display: grid;
+  gap: 40px;
+  @include respond(small, min) {
+    max-width: 457px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 62px 0;
+  }
+  @include respond(large, min) {
+    max-width: 1110px;
+    padding: 102px 0;
+    grid-template-columns: 415px 1fr;
+  }
+}
+
+.cta h2 {
+  color: $clr-white;
+  text-align: center;
+  @include respond(large, min) {
+    text-align: left;
+  }
+}
+
+.download__links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  @include respond(large, min) {
+    justify-content: flex-end;
+  }
+}
+
+.download__icons {
+  aspect-ratio: 113 / 40;
+  @include respond(large, min) {
+    aspect-ratio: 159 / 56;
+    width: 159px;
+    height: auto;
+  }
+}

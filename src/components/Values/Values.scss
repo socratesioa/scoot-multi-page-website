@@ -1,0 +1,82 @@
+@use "../../styles/abstracts" as *;
+@use "../../styles/base/typography" as typo;
+
+.value h3 {
+  @include text-preset(typo.$heading-4);
+}
+
+.value {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  position: relative;
+  @include respond(small, min) {
+    gap: 32px;
+  }
+}
+
+.value--one::after {
+  content: "01";
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  @include text-preset(typo.$heading-4);
+  color: $clr-body-dark;
+  width: 96px;
+  height: 96px;
+  background-color: $clr-accent;
+  left: 50%;
+  top: 192px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.value--two::after {
+  content: "02";
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  @include text-preset(typo.$heading-4);
+  color: $clr-body-dark;
+  width: 96px;
+  height: 96px;
+  background-color: $clr-accent;
+  left: 50%;
+  top: 192px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.value--three::after {
+  content: "03";
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  @include text-preset(typo.$heading-4);
+  color: $clr-body-dark;
+  width: 96px;
+  height: 96px;
+  background-color: $clr-accent;
+  left: 50%;
+  top: 192px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.value__img {
+  aspect-ratio: 240 / 240;
+  border-radius: 50%;
+}
+
+.value__text {
+  display: grid;
+  gap: 27px;
+  text-align: center;
+  padding-top: 48px;
+}

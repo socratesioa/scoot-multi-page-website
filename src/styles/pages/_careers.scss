@@ -1,0 +1,186 @@
+@use "../abstracts" as *;
+@use "../base/typography" as typo;
+
+.careers__hero {
+  height: 160px;
+  background-image: url("../../assets/images/img/careers-location-hero-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  place-content: center;
+  margin-bottom: 72px;
+  @include respond(small, min) {
+    height: 200px;
+    background-image: url("../../assets/images/img/careers-locations-hero-tablet.jpg");
+    margin-bottom: 144px;
+    position: relative;
+    overflow: hidden;
+  }
+  @include respond(large, min) {
+    background-image: url("../../assets/images/img/careers-locations-hero-desktop.jpg");
+    margin-bottom: 120px;
+  }
+}
+
+.careers__hero h1 {
+  @include respond(small, min) {
+    padding-left: 97px;
+  }
+  @include respond(large, min) {
+    max-width: 1110px;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 0;
+  }
+}
+
+.careers__intro__container {
+  display: grid;
+  gap: 56px;
+  padding: 0 32px;
+  justify-items: center;
+  margin-bottom: 120px;
+  position: relative;
+  @include respond(small, min) {
+    gap: 64px;
+    padding: 0;
+  }
+  @include respond(large, min) {
+    max-width: 1110px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 120px;
+    display: flex;
+    gap: 95px;
+    flex-direction: row-reverse;
+    justify-items: unset;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.careers__intro__container::after {
+  content: "";
+  position: absolute;
+  width: 741px;
+  height: 151px;
+  background-image: url("../../assets/images/patterns/left-downward-arrow.svg");
+  top: 173px;
+  right: -392px;
+  pointer-events: none;
+  @include respond(small, min) {
+    top: 307px;
+    right: -98px;
+  }
+  @include respond(large, min) {
+    right: -165px;
+  }
+}
+
+.careers__intro__container::before {
+  @include respond(small, min) {
+    content: "";
+    position: absolute;
+    width: 445px;
+    height: 445px;
+    background-image: url("../../assets/images/patterns/circle.svg");
+    right: -350px;
+    top: 0;
+  }
+  @include respond(large, min) {
+    right: -515px;
+  }
+}
+
+.careers__intro__img {
+  aspect-ratio: 311 / 311;
+  width: 100%;
+  height: auto;
+  max-width: 452px;
+  border-radius: 50%;
+}
+
+.careers__intro__content {
+  display: grid;
+  gap: 32px;
+  justify-items: center;
+  text-align: center;
+  @include respond(small, min) {
+    gap: 40px;
+    max-width: 573px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  @include respond(large, min) {
+    max-width: 445px;
+    margin: 0;
+    justify-items: start;
+    text-align: left;
+  }
+}
+
+.careers__intro__text {
+  display: grid;
+  gap: 32px;
+  @include respond(small, min) {
+    gap: 40px;
+  }
+  @include respond(large, min) {
+    gap: 24px;
+  }
+}
+
+.join {
+  max-width: 457px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 145px;
+  padding: 0 32px;
+  display: grid;
+  gap: 56px;
+  @include respond(small, min) {
+    padding: 0;
+  }
+  @include respond(large, min) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1110px;
+    margin-bottom: 120px;
+  }
+}
+
+.join h2 {
+  margin-bottom: 64px;
+  text-align: center;
+  @include respond(small, min) {
+    margin-bottom: 50px;
+  }
+  @include respond(large, min) {
+    margin-bottom: 48px;
+    grid-column: span 3;
+    grid-row: 1;
+  }
+}
+
+.jobs {
+  padding: 0 32px;
+  margin-bottom: 120px;
+  @include respond(small, min) {
+    max-width: 689px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 120px;
+    padding: 0;
+  }
+  @include respond(large, min) {
+    max-width: 1110px;
+    margin-bottom: 160px;
+  }
+}
+
+.jobs__list {
+  display: grid;
+  gap: 16px;
+  @include respond(large, min) {
+    gap: 24px;
+  }
+}

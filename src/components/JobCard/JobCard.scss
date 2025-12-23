@@ -1,0 +1,59 @@
+@use "../../styles/abstracts" as *;
+@use "../../styles/base/typography" as typo;
+
+.job__listing {
+  background-color: $clr-jobs-listing-bg;
+  padding: 36px 32px 32px 32px;
+  display: grid;
+  gap: 16px;
+  text-align: center;
+  @include respond(small, min) {
+    grid-template-columns: 1fr 180px;
+    padding: 33.5px 48px;
+    align-items: center;
+    text-align: left;
+  }
+  @include respond(large, min) {
+    gap: 24px;
+    padding: 33.5px 64px 33.5px 40px;
+  }
+}
+
+.job__details {
+  display: grid;
+  gap: 4px;
+  @include respond(small, min) {
+    gap: 8px;
+  }
+}
+
+.job__position {
+  @include text-preset(typo.$job-heading-mobile);
+  color: $clr-body-dark;
+  @include respond(small, min) {
+    @include text-preset(typo.$job-heading-tablet);
+  }
+}
+
+.apply__btn {
+  text-decoration: none;
+  background-color: $clr-accent;
+  color: $clr-white;
+  @include text-preset(typo.$links);
+  border: 3px solid transparent;
+  padding: 11px 64px;
+  outline: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.apply__btn:hover {
+  border-color: $clr-accent;
+  background-color: transparent;
+  color: $clr-accent;
+}
+
+.apply__btn:focus-visible {
+  outline-offset: 4px;
+  outline: 2px solid $clr-accent;
+  border-radius: 2px;
+}

@@ -1,0 +1,83 @@
+@use "../../styles/abstracts" as *;
+@use "../../styles/base/typography" as typo;
+
+.how__it__works {
+  display: grid;
+  gap: 48px;
+  padding: 0 32px;
+  max-width: 573px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 120px;
+  margin-bottom: 120px;
+  @include respond(small, min) {
+    padding: 0;
+    padding-top: 122px;
+    margin-bottom: 145px;
+    position: relative;
+  }
+  @include respond(large, min) {
+    padding: 0;
+    max-width: 1110px;
+    width: 100%;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 200px;
+    gap: 30px;
+  }
+}
+
+.how__it__works::before {
+  @include respond(small, min) {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 513px;
+    background-color: $clr-patterns-bg;
+    left: 42.5px;
+    top: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  @include respond(large, min) {
+    width: 974px;
+    height: 15px;
+    top: 42.5px;
+    left: -165px;
+  }
+}
+
+.article__how {
+  display: grid;
+  gap: 24px;
+  justify-items: center;
+  text-align: center;
+  @include respond(small, min) {
+    grid-template-columns: auto 1fr;
+    gap: 79px;
+    text-align: left;
+  }
+  @include respond(large, min) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    justify-items: start;
+  }
+}
+
+.article__how__icon {
+  width: 56px;
+  height: 56px;
+  z-index: 1;
+  @include respond(small, min) {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+.article__how__content {
+  display: grid;
+  gap: 24px;
+  @include respond(small, min) {
+    gap: 27px;
+  }
+}

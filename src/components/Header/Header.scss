@@ -1,0 +1,157 @@
+@use "../../styles/abstracts" as *;
+@use "../../styles/base/typography" as typo;
+
+.header__container {
+  height: 64px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  @include respond(small, min) {
+    height: 96px;
+    justify-content: flex-start;
+    padding: 0 40px;
+    gap: 60px;
+  }
+  @include respond(large, min) {
+    padding: 0;
+    max-width: 1110px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.hamburger {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: none;
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  @include respond(small, min) {
+    display: none;
+  }
+}
+
+.hamburger:focus-visible {
+  outline-offset: 4px;
+  outline: 2px solid $clr-accent;
+  border-radius: 2px;
+}
+
+.primary__nav {
+  list-style: none;
+  display: grid;
+  gap: 24px;
+  @include respond(small, min) {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+.nav__link {
+  @include text-preset(typo.$mobile-menu-links);
+  text-decoration: none;
+  color: $clr-body-light;
+  outline: none;
+  transition: color 0.3s ease;
+  @include respond(small, min) {
+    @include text-preset(typo.$links);
+  }
+}
+
+.nav__link:hover {
+  color: $clr-accent;
+}
+
+.nav__link:focus-visible {
+  outline-offset: 4px;
+  outline: 2px solid $clr-accent;
+  border-radius: 2px;
+}
+
+.cta__btn {
+  display: inline-flex;
+  background-color: $clr-accent;
+  color: $clr-white;
+  @include text-preset(typo.$links);
+  border: 3px solid transparent;
+  text-decoration: none;
+  padding: 11px 37px;
+  justify-self: end;
+  outline: none;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.cta__btn:hover {
+  background-color: $clr-white;
+  color: $clr-accent;
+  border-color: $clr-accent;
+}
+
+.cta__btn:focus-visible {
+  outline-offset: 4px;
+  outline: 2px solid $clr-accent;
+  border-radius: 2px;
+}
+
+.primary__nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  position: relative;
+
+  &.mobile {
+    position: fixed;
+    top: 64px;
+    left: -256px;
+    width: 256px;
+    height: calc(100% - 64px);
+    background-color: $clr-mobile-menu-bg;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 62px 32px 24px 32px;
+    z-index: 1000;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+  }
+
+  &.mobile.nav--open {
+    left: 0;
+  }
+}
+
+.menu__overlay {
+  position: fixed;
+  inset: 0;
+  top: 64px;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.menu__overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0s linear 0s;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
