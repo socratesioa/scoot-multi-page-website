@@ -124,6 +124,7 @@
     background-color: $clr-mobile-menu-bg;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-start;
     padding: 62px 32px 24px 32px;
     z-index: 1000;
     overflow-y: auto;

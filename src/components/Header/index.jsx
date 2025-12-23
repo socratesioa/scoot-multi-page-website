@@ -12,9 +12,12 @@ function Header() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 700);
-      if (window.innerWidth >= 700) setMenuOpen(false);
+      const mobile = window.innerWidth < 700;
+      setIsMobile(mobile);
+
+      if (!mobile) setMenuOpen(false);
     };
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -26,45 +29,21 @@ function Header() {
   useEffect(() => {
     if (!menuOpen || !isMobile) return;
 
-    const focusableSelectors = [
-      'a[href]',
-      'button:not([disabled])',
-      'textarea',
-      'input[type="text"]',
-      'input[type="radio"]',
-      'input[type="checkbox"]',
-      'select'
-    ];
-
-    const focusableEls = navRef.current.querySelectorAll(focusableSelectors.join(','));
-    const firstEl = focusableEls[0];
-    const lastEl = focusableEls[focusableEls.length - 1];
-
     const handleKeyDown = (e) => {
-      if (e.key === "Escape") {
-        setMenuOpen(false);
-      }
-
-      if (e.key !== "Tab") return;
-
-      if (e.shiftKey) {
-        if (document.activeElement === firstEl) {
-          e.preventDefault();
-          lastEl.focus();
-        }
-      } else {
-        if (document.activeElement === lastEl) {
-          e.preventDefault();
-          firstEl.focus();
-        }
-      }
+      if (e.key === "Escape") setMenuOpen(false);
     };
 
     document.addEventListener("keydown", handleKeyDown);
 
-    firstEl.focus();
+    if (navRef.current) {
+      navRef.current.setAttribute('tabIndex', '-1'); 
+      navRef.current.focus({ preventScroll: true }); 
+    }
 
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      if (navRef.current) navRef.current.removeAttribute('tabIndex'); 
+    };
   }, [menuOpen, isMobile]);
 
   return (
@@ -83,7 +62,15 @@ function Header() {
         )}
 
         <Link to='/' className="logo__link" aria-label='Go to Homepage'>
-          <img src={logo} className='header__logo' alt='Scoot Logo' width="76" height="20" loading='eager' decoding='async'/>
+          <img
+            src={logo}
+            className='header__logo'
+            alt='Scoot Logo'
+            width="76"
+            height="20"
+            loading='eager'
+            decoding='async'
+          />
         </Link>
 
         <nav
@@ -98,16 +85,16 @@ function Header() {
             <li><Link to='/careers' className='nav__link' onClick={() => setMenuOpen(false)}>Careers</Link></li>
           </ul>
           <Link
-  to="#cta"
-  className="cta__btn"
-  onClick={(e) => {
-    e.preventDefault();
-    document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" });
-    setMenuOpen(false);
-  }}
->
-  Get Scootin
-</Link>
+            to="#cta"
+            className="cta__btn"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" });
+              setMenuOpen(false);
+            }}
+          >
+            Get Scootin
+          </Link>
         </nav>
 
         <div
