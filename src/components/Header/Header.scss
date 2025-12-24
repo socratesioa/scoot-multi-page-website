@@ -106,6 +106,7 @@
 }
 
 .primary__nav-container {
+  outline: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -133,6 +134,15 @@
 
   &.mobile.nav--open {
     left: 0;
+  }
+}
+
+.primary__nav-container:not(.nav--open) {
+  visibility: hidden;
+  pointer-events: none;
+  @include respond(small, min) {
+    visibility: visible;
+    pointer-events: auto;
   }
 }
 

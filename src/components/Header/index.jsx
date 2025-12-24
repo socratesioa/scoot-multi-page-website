@@ -27,24 +27,61 @@ function Header() {
   }, [menuOpen]);
 
   useEffect(() => {
-    if (!menuOpen || !isMobile) return;
+    if (!menuOpen || !isMobile || !navRef.current) return;
+
+    const focusableSelectors = [
+      'a[href]',
+      'button:not([disabled])',
+      'textarea',
+      'input[type="text"]',
+      'input[type="radio"]',
+      'input[type="checkbox"]',
+      'select'
+    ];
+
+    const focusableEls = Array.from(
+      navRef.current.querySelectorAll(focusableSelectors.join(','))
+    );
+
+    if (!focusableEls.length) return;
+
+    const firstEl = focusableEls[0];
+    const lastEl = focusableEls[focusableEls.length - 1];
 
     const handleKeyDown = (e) => {
-      if (e.key === "Escape") setMenuOpen(false);
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        return;
+      }
+
+      if (e.key !== 'Tab') return;
+
+      if (document.activeElement === navRef.current) {
+        e.preventDefault();
+        firstEl.focus();
+        return;
+      }
+
+      if (e.shiftKey && document.activeElement === firstEl) {
+        e.preventDefault();
+        lastEl.focus();
+      } else if (!e.shiftKey && document.activeElement === lastEl) {
+        e.preventDefault();
+        firstEl.focus();
+      }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
 
-    if (navRef.current) {
-      navRef.current.setAttribute('tabIndex', '-1'); 
-      navRef.current.focus({ preventScroll: true }); 
-    }
+    navRef.current.setAttribute('tabIndex', '-1');
+    navRef.current.focus({ preventScroll: true });
 
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      if (navRef.current) navRef.current.removeAttribute('tabIndex'); 
+      document.removeEventListener('keydown', handleKeyDown);
+      navRef.current.removeAttribute('tabIndex');
     };
   }, [menuOpen, isMobile]);
+
 
   return (
     <header>
@@ -74,11 +111,13 @@ function Header() {
         </Link>
 
         <nav
-          id='primaryNav'
+          id="primaryNav"
           ref={navRef}
           className={`primary__nav-container ${menuOpen ? "nav--open" : ""} ${isMobile ? "mobile" : ""}`}
           aria-label="Primary"
-        >
+  aria-hidden={!menuOpen}
+  inert={!menuOpen ? "" : undefined}
+>
           <ul className='primary__nav'>
             <li><Link to='/about' className='nav__link' onClick={() => setMenuOpen(false)}>About</Link></li>
             <li><Link to='/locations' className='nav__link' onClick={() => setMenuOpen(false)}>Location</Link></li>

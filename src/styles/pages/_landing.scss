@@ -57,9 +57,10 @@
     top: 473px;
   }
   @include respond(large, min) {
-    left: unset;
-    right: 288px;
-    top: 355px;
+    // left: 705px;
+    // right: 288px;
+    // top: 355px;
+    background-image: none;
   }
 }
 
@@ -76,6 +77,19 @@
     width: 100%;
     margin: 0 auto;
     position: relative;
+  }
+}
+
+.hero__content::before {
+  @include respond(large, min) {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    width: 452px;
+    height: 151px;
+    background-image: url("../../assets/images/patterns/right-arrow.svg");
+    top: 202.5px;
+    left: 540px;
   }
 }
 

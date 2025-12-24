@@ -8,8 +8,12 @@ function Cta() {
             <div className='cta__container'>
                 <h2 id='cta-heading'>Sign up and Scoot off today</h2>
                 <div className='download__links'>
-                    <img src={appstore} alt='Download Scoot from the App Store' className='download__icons' width="113" height="40" loading='lazy' decoding='async'/>
-                    <img src={playstore} alt='Download Scoot from Google Play' className='download__icons' width="113" height="40" loading='lazy' decoding='async'/>
+                    <a href="#" onClick={(e) => e.preventDefault()} className="download__btn">
+                       <img src={appstore} alt='Download Scoot from the App Store' className='download__icons' width="113" height="40" loading='lazy' decoding='async'/> 
+                    </a>
+                    <a href="#" onClick={(e) => e.preventDefault()} className="download__btn">
+                        <img src={playstore} alt='Download Scoot from Google Play' className='download__icons' width="130" height="40" loading='lazy' decoding='async'/>
+                    </a>
                 </div>
             </div>
         </section>

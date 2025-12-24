@@ -55,3 +55,29 @@
     height: auto;
   }
 }
+
+.download__btn {
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+.download__btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.download__btn:hover::after {
+  opacity: 0.2;
+}
+
+.download__btn:focus-visible {
+  outline-offset: 4px;
+  outline: 2px solid $clr-accent;
+  border-radius: 2px;
+}
